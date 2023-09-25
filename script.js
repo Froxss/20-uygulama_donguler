@@ -70,3 +70,174 @@ let sayilar = [1, 5, 7, 15, 3, 25, 12, 24];
 // }
 // console.log(toplam_ortalama);
 // // tüm öğrencilerin not ortalaması kaçtır?
+
+// OBJELER İLE İLGİLİ ALIŞTIRMALAR
+
+/* 
+    1- Siparis bilgilerini object içerisinde saklayiniz.
+    2- Her siparisin ayri ayri kdv dahil toplam ödenen ucretini hesaplayiniz. (kdv: %18)
+    3- Tum siparislerin kdv dahil toplam ödenen ucretini hesaplayiniz.
+
+    siparis id: 101
+    siparis tarihi: 31.12.2022
+    ödeme sekli: kredi karti
+    kargo adresi: Yahya kaptan mah. Kocaeli İzmit
+    satin alinan urunler: 
+        urun id: 5
+        urun basliği: IPhone 13 Pro
+        urun url: http://abc.com/iphone-13-pro
+        urun fiyati: 22000
+
+        urun id: 6
+        urun basliği: IPhone 13 Pro Max
+        urun url: http://abc.com/iphone-13-pro-max
+        urun fiyati: 25000
+
+    musteri:
+        musteri id: 12
+        
+    satici:
+        firma id: 34
+        firma adi: Apple Turkiye
+
+    siparis id: 102
+    siparis tarihi: 30.12.2022
+    ödeme sekli: kredi karti
+    kargo adresi: Yahya kaptan mah. Kocaeli İzmit
+    satin alinan urunler: 
+
+        urun id: 6
+        urun basliği: IPhone 13 Pro Max
+        urun url: http://abc.com/iphone-13-pro-max
+        urun fiyati: 25000
+
+    musteri:
+        musteri id: 12
+        
+    satici:
+        firma id: 34
+        firma adi: Apple Turkiye
+
+*/
+
+/*let siparis_1 = {
+    "siparis_id": 101,
+    "siparis_tarihi": "30.12.2022",
+    "odeme_sekli": "kredi karti",
+    "kargo_adresi": {
+        "mahalle": "yahya kaptan",
+        "ilce": "izmit",
+        "sehir": "kocaeli"
+    },
+    "urunler": [
+        {
+            "urun_id": 5,
+            "urun_adi": "IPhone 13 Pro",
+            "urun_url": "http://abc.com/iphone-13-pro",
+            "urun_fiyat": 22000
+        },
+        {
+            "urun_id": 6,
+            "urun_adi": "IPhone 13 Pro Max",
+            "urun_url": "http://abc.com/iphone-13-pro-max",
+            "urun_fiyat": 25000
+        }
+    ]
+};
+
+let siparis_2 = {
+    "siparis_id": 102,
+    "siparis_tarihi": "30.12.2022",
+    "odeme_sekli": "kredi karti",
+    "kargo_adresi": {
+        "mahalle": "yahya kaptan",
+        "ilce": "izmit",
+        "sehir": "kocaeli"
+    },
+    "urunler": [
+        {
+            "urun_id": 6,
+            "urun_adi": "IPhone 13 Pro Max",
+            "urun_url": "http://abc.com/iphone-13-pro-max",
+            "urun_fiyat": 25000
+        }
+    ]
+};
+
+let siparis1_toplam = (siparis_1.urunler[0].urun_fiyat + siparis_1.urunler[1].urun_fiyat) * 1.18;
+let siparis2_toplam = (siparis_1.urunler[0].urun_fiyat) * 1.18;
+
+let toplam_siparis = siparis1_toplam + siparis2_toplam;
+
+console.log("siparis 1: " + siparis1_toplam);
+console.log("siparis 2: " + siparis2_toplam);
+
+console.log("toplam ödenen miktar: " , toplam_siparis);
+
+let siparisler = [siparis_1, siparis_2];
+
+*/
+let siparis_1 = {
+  "siparis id": 101,
+  "siparis tarihi": "31.12.2022",
+  "ödeme sekli": "Kredi karti",
+  "kargo adresi": "Yahya kaptan mah. Kocaeli İzmit",
+  "satin alinan urunler": [
+    {
+      "urun id": 5,
+      "urun basliği": "IPhone 13 Pro",
+      "urun url": "http://abc.com/iphone-13-pro",
+      "urun fiyati": 22000,
+    },
+    {
+      "urun id": 6,
+      "urun basliği": "IPhone 13 Pro Max",
+      "urun url": "http://abc.com/iphone-13-pro-max",
+      "urun fiyati": 25000,
+    },
+  ],
+  musteri: {
+    "musteri id": 12,
+    "musteri adi": "Burak Yetis",
+  },
+  satici: {
+    "firma id": 34,
+    "firma adi": "Apple Turkiye",
+  },
+};
+
+let siparis_2 = {
+  "siparis id": 102,
+  "siparis tarihi": "30.12.2022",
+  "ödeme sekli": "Kredi karti",
+  "kargo adresi": "Yahya kaptan mah. Kocaeli İzmit",
+  "satin alinan urunler": [
+    {
+      "urun id": 6,
+      "urun basliği": "IPhone 13 Pro Max",
+      "urun url": "http://abc.com/iphone-13-pro-max",
+      "urun fiyati": 25000,
+    },
+  ],
+  musteri: {
+    "musteri id": 12,
+    "musteri adi": "Burak Yetis",
+  },
+  satici: {
+    "firma id": 34,
+    "firma adi": "Apple Turkiye",
+  },
+};
+
+let siparis_1_tutar =
+  siparis_1["satin alinan urunler"][0]["urun fiyati"] +
+  siparis_1["satin alinan urunler"][1]["urun fiyati"];
+let siparis_1_kdv = siparis_1_tutar * 1.18;
+
+console.log(siparis_1_kdv);
+
+let siparis_2_tutar = siparis_2["satin alinan urunler"][0]["urun fiyati"];
+let siparis_2_kdv = siparis_2_tutar * 1.18;
+let toplam_tutar = siparis_1_kdv + siparis_2_kdv;
+
+console.log(toplam_tutar);
